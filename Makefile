@@ -20,7 +20,10 @@
 
 SRC = c_src/sqlite3_nif.c
 
-CFLAGS = -I"$(ERTS_INCLUDE_DIR)"
+CFLAGS ?= ""
+CFLAGS += -I"$(ERTS_INCLUDE_DIR)"
+
+EXQLITE_USE_SYSTEM = "n"
 
 ifeq ($(EXQLITE_USE_SYSTEM),)
 	SRC += c_src/sqlite3.c
